@@ -2,6 +2,7 @@ import pdb
 import numpy as np
 import nose
 import cudamat as cm
+import cudamat_conv as cm_cv
 
 def setup():
     cm.cublas_init()

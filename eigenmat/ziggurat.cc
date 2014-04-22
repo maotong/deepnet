@@ -1,3 +1,4 @@
+#include "stdafx.h"
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
@@ -440,60 +441,60 @@ unsigned long int shr3 ( unsigned long int *jsr )
 }
 //****************************************************************************80
 
-void timestamp ( )
+//void timestamp ( )
+//
+////****************************************************************************80
+////
+////  Purpose:
+////
+////    TIMESTAMP prints the current YMDHMS date as a time stamp.
+////
+////  Example:
+////
+////    31 May 2001 09:45:54 AM
+////
+////  Licensing:
+////
+////    This code is distributed under the GNU LGPL license. 
+////
+////  Modified:
+////
+////    24 September 2003
+////
+////  Author:
+////
+////    John Burkardt
+////
+////  Parameters:
+////
+////    None
+////
+//{
+//# define TIME_SIZE 40
+//
+//  static char time_buffer[TIME_SIZE];
+//  const struct tm *tm;
+//  size_t len;
+//  time_t now;
+//
+//  now = time ( NULL );
+//  tm = localtime ( &now );
+//
+//  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
+//
+//  cout << time_buffer << "\n";
+//
+//  return;
+//# undef TIME_SIZE
+//}
 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TIMESTAMP prints the current YMDHMS date as a time stamp.
-//
-//  Example:
-//
-//    31 May 2001 09:45:54 AM
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    24 September 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    None
-//
-{
-# define TIME_SIZE 40
-
-  static char time_buffer[TIME_SIZE];
-  const struct tm *tm;
-  size_t len;
-  time_t now;
-
-  now = time ( NULL );
-  tm = localtime ( &now );
-
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
-
-  cout << time_buffer << "\n";
-
-  return;
-# undef TIME_SIZE
-}
-
-int main(int argc, char** argv) {
-  std::cout << "Testing..\n";
-  unsigned long int seed = 1;
-  int kn[128];
-  float fn[128], wn[128];
-  r4_nor_setup (kn, fn, wn);
-  for (int i = 0; i < 10; i++) {
-    std::cout << r4_nor (&seed, kn, fn, wn) << "\n";
-  }
-}
+//int main(int argc, char** argv) {
+//  std::cout << "Testing..\n";
+//  unsigned long int seed = 1;
+//  int kn[128];
+//  float fn[128], wn[128];
+//  r4_nor_setup (kn, fn, wn);
+//  for (int i = 0; i < 10; i++) {
+//    std::cout << r4_nor (&seed, kn, fn, wn) << "\n";
+//  }
+//}

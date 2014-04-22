@@ -5,9 +5,9 @@ stopcondition {
 }
 train: true 
 batchsize: 100
-data_proto: "/ais/gobi3/u/nitish/mnist/mnist.pbtxt"
+data_proto: "F:/project/deepnet/data/mnist/mnist.pbtxt"
 eval_after: 500
 checkpoint_after: 10000
-checkpoint_directory: "/ais/gobi3/u/nitish/mnist/models"
+checkpoint_directory: "F:/project/deepnet/data/mnist/models"
 show_after: 500
 randomize: true

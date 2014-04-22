@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <Eigen/Dense>
@@ -9,6 +10,7 @@ extern "C" {
 extern int init_random(rnd_struct* rnd_state, int seed) {
   rnd_state->seed = seed;
   r4_nor_setup(rnd_state->kn, rnd_state->fn, rnd_state->wn);
+  return 0;
 }
 
 /* ------------------------------ Utility routines ------------------------------ */
@@ -25,7 +27,7 @@ extern void set_transpose(eigenmat* mat, int is_trans) {
   mat->is_trans = is_trans;
 }
 
-inline char get_transpose_char(eigenmat* mat) {
+extern inline char get_transpose_char(eigenmat* mat) {
   return mat->is_trans ? 't' : 'n';
 }
 

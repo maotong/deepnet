@@ -9,10 +9,12 @@ from time import sleep
 
 def LockGPU(max_retries=10):
   for retry_count in range(max_retries):
-    board = gpu_lock.obtain_lock_id()
-    if board != -1:
-      break
-    sleep(1)
+  #board = gpu_lock.obtain_lock_id()
+     board = cm.cuda_obtain_gpu_id()
+     if board != -1:
+        break
+  sleep(1)
+  #board = 0
   if board == -1:
     print 'No GPU board available.'
     sys.exit(1)

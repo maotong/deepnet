@@ -52,6 +52,29 @@ extern int cuda_set_device(int deviceId) {
         return 0;
 }
 
+extern int cuda_obtain_gpu_id() {
+	int deviceCount = 0;
+	cudaError_t err = cudaGetDeviceCount(&deviceCount);
+	if (cudaSuccess != err){
+        printf("%s\n", cudaGetErrorString( err));
+		return -1;
+	}
+	if(deviceCount == 0){
+		printf("There are no CUDA capabile devices.\n");
+		return -1;
+	}
+	int deviceCompute = 10;
+	for(int i = 0; i < deviceCount; i++){
+		cudaDeviceProp deviceProp;
+        cudaGetDeviceProperties(&deviceProp, i);
+		if((deviceProp.major*10+deviceProp.minor) > deviceCompute){
+			deviceCompute = deviceProp.major*10+deviceProp.minor;
+			deviceCount = i;
+		}
+	}
+	return deviceCount;
+}
+
 extern int init_random(rnd_struct* rnd_state, int seed, char* cudamatpath) {
     unsigned int * host_mults;
     host_mults = (unsigned int*)malloc(NUM_RND_STREAMS * sizeof(unsigned int));

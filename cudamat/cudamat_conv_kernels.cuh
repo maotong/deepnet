@@ -3,6 +3,8 @@
 #define LO16(x)   ((x) & 0x0000FFFF)
 #define HI16(x)   ((x) >> 16)
 
+#define uint unsigned int
+
 #define getLastCudaError(msg)   __getLastCudaError (msg, __FILE__, __LINE__)
 inline void __getLastCudaError(const char *errorMessage, const char *file, const int line) {
  cudaError_t err = cudaGetLastError();

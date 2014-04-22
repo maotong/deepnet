@@ -1,5 +1,8 @@
-from deepnet import util
-from deepnet import deepnet_pb2
+#from deepnet import util
+#from deepnet import deepnet_pb2
+import util
+import deepnet_pb2
+
 import cPickle as pickle
 from choose_matrix_library import *
 import glob

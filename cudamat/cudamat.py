@@ -13,6 +13,7 @@ _cudamat.get_last_cuda_error.restype = ct.c_char_p
 _cudamat.cublas_init.restype = ct.c_int
 _cudamat.cublas_shutdown.restype = ct.c_int
 _cudamat.cuda_set_device.restype = ct.c_int
+_cudamat.cuda_obtain_gpu_id.restype = ct.c_int
 _cudamat.init_random.restype = ct.c_int
 
 _cudamat.init_empty.restype = ct.c_int
@@ -1875,6 +1876,10 @@ def cuda_set_device(dev_id):
     err_code =  _cudamat.cuda_set_device(ct.c_int(dev_id))
     if err_code:
         raise generate_exception(err_code)
+
+def cuda_obtain_gpu_id():
+    deviceID =  _cudamat.cuda_obtain_gpu_id()
+    return deviceID
 
 def cublas_init():
     """
